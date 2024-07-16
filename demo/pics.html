@@ -3,45 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .out {
+            width: 500px;
+           margin: 0 auto;
+           padding: 20px;
+           border: 1px solid #ccc;
+           border-radius: 5px;
+           text-align: center;
+           position: relative;
+           background-color: aqua;
+        }
+        #img {
+            width: 100%;
+           object-fit: cover;
+        }
+        button {
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
     <div class="out">
         <img id ="img" src="./ffpic/01.jpg" alt="慢浪">
         <br>
+        <div style="text-align:center">
         <button id="bebtn">上一张</button>
         <button id="aftbtn">下一张</button>
-        <script>
-            var img = document.getElementById("img");
-            var bebtn = document.getElementById("bebtn");
-            var aftbtn = document.getElementById("aftbtn");
-         
-            var index = 0;
-            var indexs = ["./ffpic/01.jpg","./ffpic/02.jpg",
-            "./ffpic/03.jpg","./ffpic/04.jpg","./ffpic/05.jpg",
-            "./ffpic/06.jpg","./ffpic/07.jpg","./ffpic/08.jpg","./ffpic/09.jpg"];
-            bebtn.onclick = function() {
-                index--;
-                   if(index < 0) {
-                       index = 8;
-
-                   }
-                    img.src = indexs[index];
-               
-            }
-            aftbtn.onclick = function() {
-                index++;
-                   if(index > 8) {
-                       index = 0;
-
-                   }
-                    var rc = "./ffpic/0" +index + ".jpg";
-                    console.log(rc);
-                    img.src = indexs[index];
-                
-            }
-        </script>
-
+        </div>
     </div>
+    <script>
+        var img = document.getElementById("img");
+        var bebtn = document.getElementById("bebtn");
+        var aftbtn = document.getElementById("aftbtn");
+     
+        var index = 0;
+        var indexs = ["./ffpic/01.jpg","./ffpic/02.jpg",
+        "./ffpic/03.jpg","./ffpic/04.jpg","./ffpic/05.jpg",
+        "./ffpic/06.jpg","./ffpic/07.jpg","./ffpic/08.jpg","./ffpic/09.jpg"];
+        bebtn.onclick = function() {
+            index--;
+               if(index < 0) {
+                   index = indexs.length - 1;
+
+               }
+                img.src = indexs[index];
+           
+        }
+        aftbtn.onclick = function() {
+            index++;
+               if(index > indexs.length - 1) {
+                   index = 0;
+
+               }
+                var rc = "./ffpic/0" +index + ".jpg";
+                console.log(rc);
+                img.src = indexs[index];
+            
+        }
+    </script>
+
 </body>
 </html>
