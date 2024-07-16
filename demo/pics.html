@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="out">
+        <img id ="img" src="./ffpic/01.jpg" alt="慢浪">
+        <br>
+        <button id="bebtn">上一张</button>
+        <button id="aftbtn">下一张</button>
+        <script>
+            var img = document.getElementById("img");
+            var bebtn = document.getElementById("bebtn");
+            var aftbtn = document.getElementById("aftbtn");
+         
+            var index = 0;
+            var indexs = ["./ffpic/01.jpg","./ffpic/02.jpg",
+            "./ffpic/03.jpg","./ffpic/04.jpg","./ffpic/05.jpg",
+            "./ffpic/06.jpg","./ffpic/07.jpg","./ffpic/08.jpg","./ffpic/09.jpg"];
+            bebtn.onclick = function() {
+                index--;
+                   if(index < 0) {
+                       index = 8;
+
+                   }
+                    img.src = indexs[index];
+               
+            }
+            aftbtn.onclick = function() {
+                index++;
+                   if(index > 8) {
+                       index = 0;
+
+                   }
+                    var rc = "./ffpic/0" +index + ".jpg";
+                    console.log(rc);
+                    img.src = indexs[index];
+                
+            }
+        </script>
+
+    </div>
+</body>
+</html>
